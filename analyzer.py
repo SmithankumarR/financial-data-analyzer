@@ -24,12 +24,6 @@ monthly_summary = data.groupby(data["Date"].dt.month)["Amount"].sum()
 # Tax calculation (simple 10%)
 tax = net_profit * 0.10
 
-print("\n==== Monthly Summary ====")
-print(monthly_summary)
-
-print("\n==== Tax Estimation ====")
-print("Estimated Tax (10%):", tax)
-
 # Output
 print("==== Financial Summary ====")
 print("Total Income:", total_income)
@@ -38,3 +32,9 @@ print("Net Profit:", net_profit)
 
 print("\n==== Category-wise Expenses ====")
 print(category_expense)
+
+print("\n==== Monthly Summary ====")
+print(monthly_summary)
+
+print("\n==== Tax Estimation ====")
+print("Estimated Tax (10%):", tax)
