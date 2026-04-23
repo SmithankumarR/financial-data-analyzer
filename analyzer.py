@@ -15,6 +15,21 @@ net_profit = total_income - total_expense
 # Category-wise expense breakdown
 category_expense = expense.groupby("Category")["Amount"].sum()
 
+# Convert Date column to datetime
+data["Date"] = pd.to_datetime(data["Date"])
+
+# Monthly summary
+monthly_summary = data.groupby(data["Date"].dt.month)["Amount"].sum()
+
+# Tax calculation (simple 10%)
+tax = net_profit * 0.10
+
+print("\n==== Monthly Summary ====")
+print(monthly_summary)
+
+print("\n==== Tax Estimation ====")
+print("Estimated Tax (10%):", tax)
+
 # Output
 print("==== Financial Summary ====")
 print("Total Income:", total_income)
