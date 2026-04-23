@@ -10,7 +10,16 @@ expense = data[data["Type"] == "Expense"]
 # Calculate totals
 total_income = income["Amount"].sum()
 total_expense = expense["Amount"].sum()
+net_profit = total_income - total_expense
 
+# Category-wise expense breakdown
+category_expense = expense.groupby("Category")["Amount"].sum()
+
+# Output
+print("==== Financial Summary ====")
 print("Total Income:", total_income)
 print("Total Expense:", total_expense)
-print("Net Profit:", total_income - total_expense)
+print("Net Profit:", net_profit)
+
+print("\n==== Category-wise Expenses ====")
+print(category_expense)
